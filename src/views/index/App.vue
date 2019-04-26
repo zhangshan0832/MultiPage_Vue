@@ -12,6 +12,9 @@
       <van-button type="warning">警告按钮</van-button>
       <van-button type="danger">危险按钮</van-button>
     </div>
+    <div class="test">
+      test
+    </div>
   </div>
 </template>
 
@@ -32,7 +35,7 @@ export default {
         this.$http
           .post(null, { AccountId: "F1232598", Func: "News-GetMoreList" })
           .then(data => {
-            console.log(data);
+            window.console.log(data);
           })
       );
     }
@@ -40,7 +43,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -48,5 +51,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  .test{
+    color: red;
+  }
 }
 </style>

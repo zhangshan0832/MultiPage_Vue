@@ -1,3 +1,5 @@
+const path = require('path');
+const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
     pages: {
       index: {
@@ -19,5 +21,16 @@ module.exports = {
       // 并且如果找不到的话，就回退到 `public/index.html`。
       // 输出文件名会被推导为 `subpage.html`。
       subpage: 'src/views/subpage/main.js'
+    },
+    configureWebpack: config => {
+      return {
+        plugins: [
+          new CompressionPlugin({
+            test: /\.js$|\.html$|\.css/, // 匹配文件名
+            threshold: 10240, // 对超过10k的数据进行压缩
+            deleteOriginalAssets: false //是否删除源文件
+          })
+        ]
+      }
     }
   }
